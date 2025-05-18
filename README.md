@@ -1,1 +1,1 @@
-# Checkpoint-2---Fibonacci-Fatorial-Pal-ndromo-e-Substring
+# Checkpoint-2---Fibonacci-Fatorial-Palindromo-e-Substring
