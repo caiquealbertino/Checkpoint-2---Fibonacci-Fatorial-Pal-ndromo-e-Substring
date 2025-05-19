@@ -37,6 +37,12 @@ int main() {
             break;
         }
         case 2: {
+            void calcularFatoriais(int limite, unsigned long long resultado[]) {
+                resultado[0] = 1;
+                for (int i = 2; i <= limite; i++) {
+                    resultado[i - 1] = resultado[i - 2] * i;
+                }
+        }
             printf("\nVoce escolheu a opcao de Fatoriais\n");
             int numero;
             printf("\nEscolha um numero de 1 a 20: ");
@@ -47,20 +53,17 @@ int main() {
                 printf("Numero invalido! Digite um valor entre 1 e 20.\n");
                 return 1;
             }
-            
+
             unsigned long long fatoriais[numero];
-            fatoriais[0] = 1;
-            
-            for (int i = 2; i <= numero; i++) {
-                fatoriais[i-1] = fatoriais[i-2] * i;
-            }
-        
+            calcularFatoriais(numero, fatoriais);
+
             printf("\nFatoriais calculados:\n");
             for (int i = 0; i < numero; i++) {
-                printf("%d! = %llu\n", i+1, fatoriais[i]);
+                printf("%d! = %llu\n", i + 1, fatoriais[i]);
             }
             break;
         }
+  
         case 3: {
             printf("Voce escolheu a opcao de verificar Palindromo\n");
             char palavra[101];
