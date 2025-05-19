@@ -18,30 +18,19 @@ int main() {
 
     switch(opcao) {
         case 1: {
-            printf("\nVoce escolheu a Sequencia de Fibonacci\n");
-           
-            int numero, i;
-            printf("\nEscolha um valor de 1 a 50: ");
-            scanf("%d", &numero);
-            getchar();
-           
-            if (numero < 1 || numero > 50) {
-                printf("Numero invalido, escolha um valor entre 1 e 50.\n");
-                return 1;
-            }
-            
+            void calcularFibonacci(int numero)
             unsigned long long fib[numero];
             fib[0] = 0;
             if (numero > 1) {
                 fib[1] = 1;
             }
 
-            for (i = 2; i < numero; i++) {
+            for (int i = 2; i < numero; i++) {
                 fib[i] = fib[i-1] + fib[i-2];
             }
 
             printf("Os %d primeiros termos da sequencia de Fibonacci: \n", numero);
-            for (i = 0; i < numero; i++) {
+            for (int i = 0; i < numero; i++) {
                 printf("%llu ", fib[i]);
             }
             printf("\n");
