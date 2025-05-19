@@ -65,29 +65,34 @@ int main() {
         }
   
         case 3: {
-            printf("Voce escolheu a opcao de verificar Palindromo\n");
-            char palavra[101];
-            int i, j, tamanho;
-            int eh_palindromo = 1;
+int verificar_palindromo(const char *palavra) {
+    int i, j;
+    int tamanho = strlen(palavra);
+    
+    for (i = 0, j = tamanho - 1; i < j; i++, j--) {
+        if (tolower(palavra[i]) != tolower(palavra[j])) {
+            return 0;
+        }
+    }
+    return 1;
+}
 
-            printf("Digite uma palavra (sem espaços, ate 100 letras): ");
-            scanf("%100s", palavra); 
-            getchar();
-        
-            tamanho = strlen(palavra);
-            
-            for (i = 0, j = tamanho - 1; i < j; i++, j--) {
-                if (tolower(palavra[i]) != tolower(palavra[j])) {
-                    eh_palindromo = 0;
-                    break;
-                }
-            }
-        
-            if (eh_palindromo) {
-                printf("\"%s\" e um palindromo!\n", palavra);
-            } else {
-                printf("\"%s\" nao e um palindromo.\n", palavra);
-            }
+int main() {
+    printf("Voce escolheu a opcao de verificar Palindromo\n");
+    char palavra[101];
+    int eh_palindromo;
+
+    printf("Digite uma palavra (sem espaços, ate 100 letras): ");
+    scanf("%100s", palavra); 
+    getchar();
+    
+    eh_palindromo = verificar_palindromo(palavra);
+    
+    if (eh_palindromo) {
+        printf("\"%s\" e um palindromo!\n", palavra);
+    } else {
+        printf("\"%s\" nao e um palindromo.\n", palavra);
+    }
             break;
         }
         case 4: {
